@@ -1,6 +1,7 @@
-# React + Vite
+# React + Vite + TailwindCss
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://snazzy-macaron-8c7b5b.netlify.app/
+
 
 Currently, two official plugins are available:
 
