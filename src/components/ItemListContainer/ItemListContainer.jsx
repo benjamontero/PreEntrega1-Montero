@@ -1,6 +1,5 @@
 import React from 'react'
 import logoMatearNombre from '../../assets/logoMatearNombre.svg'
-
 export const ItemListContainer = ({greeting}) => {
   return (
     <div className='flex flex-col	items-center'>
