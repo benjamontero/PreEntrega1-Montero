@@ -1,11 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export const Item = ({
-  name,
-  price,
-  category,
-  image,
-}) => {
+export const Item = ({id, name,price,category,image}) => {
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div className="text-xl p-2 text-center font-semibold tracking-tight text-gray-900 dark:text-white">{category}</div>
@@ -23,12 +19,11 @@ export const Item = ({
           <span className="text-3xl font-bold text-gray-900 dark:text-white">
             ${price}
           </span>
-          <a
-            href="#"
+          <Link to={`/item/${id}`}
             className="bg-cyan-200 hover:bg-cyan-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Ver mas
-          </a>
+          </Link>
         </div>
       </div>
     </div>

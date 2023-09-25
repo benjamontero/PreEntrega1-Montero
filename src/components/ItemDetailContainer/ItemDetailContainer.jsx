@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const ItemDetailContainer = () => {
+export const ItemDetailContainer = ({children}) => {
   return (
-    <>
-    <h1>ItemDetailContainer</h1>
-    </>
+    <div>
+    {children}
+    </div>
   )
 }
