@@ -1,24 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { products } from "./products";
 import "./App.css";
 import { Navbar } from "./components/Navbar/Navbar";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
+import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
+import { Item } from "./components/Item/Item";
+import { Layout } from "./components/Layout/Layout";
+import { Navigation } from "./routes/Navigation";
 
 function App() {
- const productPromise = new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(products);
-    }, 2000);
-  });  
-  
-  productPromise
-  .then((res) => console.log(res));
+ 
 
   return (
-    <>
-      <Navbar />
-      <ItemListContainer greeting="Bienvenidos a Matear!" />
-    </>
+   
+ <Navigation/>
+
+  
+ 
   );
 }
 

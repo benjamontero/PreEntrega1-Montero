@@ -1,12 +1,12 @@
 import React from "react";
 import logoMatear from "../../assets/logo-matear.svg";
 import "./style-navbar.css";
-
 import { CartWidget } from "../CartWidget/CartWidget";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <nav className="navbar bg-cyan-100 flex justify-between px-3 py-3 m-4 shadow-md rounded-lg">
+    <nav className="navbar flex justify-between px-3 py-3 m-4 shadow-xl rounded-lg">
       <div className="flex">
         <img className="" src={logoMatear} alt="MatearLogo" />
         <h1 className="text-2xl pt-3 font-bold">MATEAR</h1>
@@ -15,26 +15,12 @@ export const Navbar = () => {
       <div className="mx-auto flex items-center justify-between text-gray-900">
         
         <ul className="items-center gap-6 flex">
-          <li className=" p-1 font-sans text-lg font-medium leading-normal text-inherit ">
-            <a className="flex items-center" href="#">
-              Home
-            </a>
-          </li>
-          <li className=" p-1 font-sans text-lg font-medium leading-normal text-inherit ">
-            <a className="flex items-center" href="#">
-              Tienda
-            </a>
-          </li>
-          <li className=" p-1 font-sans text-lg font-medium leading-normal text-inherit ">
-            <a className="flex items-center" href="#">
-              Blog
-            </a>
-          </li>
-          <li className=" p-1 font-sans text-lg font-medium leading-normal text-inherit ">
-            <a className="flex items-center" href="#">
-              Contacto
-            </a>
-          </li>
+          <li><Link to={"/"} className="flex items-center" href="#">Home</Link></li>
+          <li><Link to={"/"} className="flex items-center" href="#">Tienda</Link></li>
+          <li><Link to={"/category/mates"} className="flex items-center" href="#">Mates</Link></li>
+          <li><Link to={"/category/termos"} className="flex items-center" href="#">Termos</Link></li>
+          <li><Link to={"/404"} className="flex items-center" href="#">Bombillas</Link></li>
+
         </ul>
       </div>
       <CartWidget />
