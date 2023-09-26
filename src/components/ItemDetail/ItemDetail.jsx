@@ -16,14 +16,14 @@ export const ItemDetail = ({
             <div className=" rounded-lg mb-4">
               <img src={image} alt="" />
             </div>
-            <div class="flex -mx-2 mb-4">
-              <div class="w-1/2 px-2">
-                <Link class="w-full bg-gray-900 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800">
+            <div className="flex -mx-2 mb-4">
+              <div className="w-1/2 px-2">
+                <Link className="w-full py-2 px-4 rounded-full font-bold bg-cyan-200 hover:bg-cyan-300">
                   Agregar a carrito
                 </Link>
               </div>
-              <div class="w-1/2 px-2">
-                <Link to={"/"} class="w-full bg-gray-400 text-gray-800 py-2 px-4 rounded-full font-bold hover:bg-gray-300">
+              <div className="w-1/2 px-2">
+                <Link to={"/"} className="w-full bg-gray-400 text-gray-800 py-2 px-4 rounded-full font-bold hover:bg-gray-300">
                   Volver
                 </Link>
               </div>

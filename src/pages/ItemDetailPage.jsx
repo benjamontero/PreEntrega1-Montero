@@ -4,7 +4,7 @@ import { ItemDetailContainer } from "../components/ItemDetailContainer/ItemDetai
 import { products } from '../products';
 import { Layout } from "../components/Layout/Layout";
 import { ItemDetail } from "../components/ItemDetail/ItemDetail";
-
+import {Loading} from '../components/Loading'
 
 export const ItemDetailPage = () => {
     const { id } = useParams();
@@ -30,7 +30,7 @@ export const ItemDetailPage = () => {
         <ItemDetailContainer>
           {
             isLoading 
-            ? <p>Cargando...</p>
+            ? <Loading/>
             :
             <ItemDetail
             name={producto.name}
