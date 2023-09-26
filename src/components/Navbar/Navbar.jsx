@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
   return (
     <nav className="navbar flex justify-between px-3 py-3 m-4 shadow-xl rounded-lg">
-      <div className="flex">
+      <Link  to={"/"} className="flex">
         <img className="" src={logoMatear} alt="MatearLogo" />
         <h1 className="text-2xl pt-3 font-bold">MATEAR</h1>
-      </div>
+      </Link>
       
       <div className="mx-auto flex items-center justify-between text-gray-900">
         
