@@ -19,7 +19,7 @@ export const Navbar = () => {
           <li><Link to={"/"} className="flex items-center" href="#">Tienda</Link></li>
           <li><Link to={"/category/mates"} className="flex items-center" href="#">Mates</Link></li>
           <li><Link to={"/category/termos"} className="flex items-center" href="#">Termos</Link></li>
-          <li><Link to={"/category/bombillas"} className="flex items-center" href="#">Bombillas</Link></li>
+          <li><Link to={"/404"} className="flex items-center" href="#">Bombillas</Link></li>
 
         </ul>
       </div>

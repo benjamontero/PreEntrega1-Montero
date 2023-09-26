@@ -59,7 +59,34 @@ export const products = [
         stock: 6,
         category: "Termos",
         description: " Bebidas con la temperatura ideal - Agua caliente garantizada hasta por 35 horas - Capacidad de 1182 mL - Pico cebador ",
-        image:"https://http2.mlstatic.com/D_NQ_NP_805703-MLA69638329682_052023-O.webp"
-    }
-
+        image:"https://http2.mlstatic.com/D_NQ_NP_805703-MLA69638329682_052023-O.webp"}
+    ,
+    {
+        id: 8,
+        name:"Mate Pampa Afa Campeon - Plastico",
+        price: 12.33,
+        stock: 10,
+        category: "Mates",
+        description: " Termico con camara de aire - Facil extraccion de yerba - No necesita curado - No genera Hongos - Super Resistente ",
+        image:"https://http2.mlstatic.com/D_NQ_NP_725928-MLU70720002447_072023-O.webp"}
+    ,
+    {
+        id: 9,
+        name:"Mate Discovery con Tapa - Acero Inox",
+        price: 13.79,
+        stock: 6,
+        category: "Mates",
+        description: " Incluye Tapa con interna de Silicona - Aprobado por I.N.A.L - Logo Frontal Discovery - Capacidad 350 ml - Resistente y Duradero",
+        image:"https://http2.mlstatic.com/D_NQ_NP_917013-MLA53876314251_022023-O.webp"}
+    ,
+    {
+        id: 10,
+        name:"Termo Generico azul 1L - Acero Inox",
+        price: 11.49,
+        stock: 9,
+        category: "Termos",
+        description: " El sistema de vacío interno permite la conservación de la temperatura de tu bebida, eliminando los cambios que se puedan producir con el paso de las horas. ",
+        image:"https://http2.mlstatic.com/D_NQ_NP_613230-MLU70722755443_072023-O.webp"}
+    ,
+    
 ]

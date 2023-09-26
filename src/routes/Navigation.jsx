@@ -4,6 +4,7 @@ import { ItemListContainer } from '../components/ItemListContainer/ItemListConta
 import { Home } from '../pages/Home'
 import { ItemDetailPage } from '../pages/ItemDetailPage'
 import { ItemDetailContainer } from '../components/ItemDetailContainer/ItemDetailContainer'
+import { ErrorPage } from '../pages/ErrorPage'
 
 const router = createBrowserRouter([
 
@@ -18,7 +19,11 @@ const router = createBrowserRouter([
     {
         path: '/item/:id',
         element: <ItemDetailPage/>
-    }
+    },
+    {
+      path: '/404',
+      element: <ErrorPage/>
+  }
 
 ])
 
