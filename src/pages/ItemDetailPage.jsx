@@ -29,6 +29,7 @@ export const ItemDetailPage = () => {
       <Layout>
         <ItemDetailContainer>
           {
+
             isLoading 
             ? <Loading/>
             :
