@@ -4,12 +4,10 @@ import { ItemListContainer } from "../components/ItemListContainer/ItemListConta
 export const Home = () => {
 
   return (
-    <div>
+    
       <Layout>
-        <ItemListContainer>
-     
-        </ItemListContainer>
+        <ItemListContainer/>
       </Layout>
-    </div>
+
   );
 };
