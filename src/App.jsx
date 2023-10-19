@@ -1,5 +1,5 @@
 import "./App.css";
-import { CartContext } from "./context/cartContext";
+import { CartContext } from "./context/CartContext";
 import { Navigation } from "./routes/Navigation";
 
 
