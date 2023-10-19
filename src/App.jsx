@@ -2,6 +2,7 @@ import "./App.css";
 import { CartContext } from "./context/cartContext";
 import { Navigation } from "./routes/Navigation";
 
+
 function App() {
   return (
     <CartContext>
