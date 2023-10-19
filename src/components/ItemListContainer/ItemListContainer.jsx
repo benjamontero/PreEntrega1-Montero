@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Loading } from "../Loading";
 import { useParams } from "react-router-dom";
 import { ItemList } from "../ItemList/ItemList";
-import { CartCtx } from "../../context/cartContext";
+import { CartCtx } from "../../context/CartContext";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase/config";
 

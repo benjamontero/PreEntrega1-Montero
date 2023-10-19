@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Layout } from "../components/Layout/Layout";
-import { CartCtx } from "../context/cartContext";
+import { CartCtx } from "../context/CartContext";
 import { useForm } from "react-hook-form";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
