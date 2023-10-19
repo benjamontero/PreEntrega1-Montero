@@ -14,7 +14,7 @@ export const ErrorPage = () => {
                 <img className='h-48' src={matearError} alt="" />
                 </div>
             <p className="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">Ups... el Mate se cayo</p>
-            <p className="mb-4 text-lg  text-gray-500 dark:text-gray-400">Esta pagina esta siendo construida, si me va bien en la preEntrega2, estara terminada. </p>
+            <p className="mb-4 text-lg  text-gray-500 dark:text-gray-400">Esta pagina esta siendo construida, aun no hay productos cargados, intente con mates o termos. </p>
             <Link to={"/"} className="inline-flex text-w bg-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center my-4">Volver al Home</Link>
         </div>   
     </div>

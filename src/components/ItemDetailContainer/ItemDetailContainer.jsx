@@ -2,26 +2,32 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Loading } from "../Loading";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
-import { products } from "../../products";
+import { db } from "../../firebase/config";
+import { doc, getDoc } from "firebase/firestore";
 
-export const ItemDetailContainer = ({ children }) => {
+
+export const ItemDetailContainer = () => {
 
   const { id } = useParams();
   const[isLoading, setIsLoading] = useState(true)
   const [producto, setProducto] = useState({})
 
 
-  const searchProduct = products.find(
-    (prod) => prod.id === parseInt(id)
-  );
-
   useEffect(()=>{
-    setTimeout(()=>{
-      console.log(searchProduct);
-      setProducto (searchProduct);
-      setIsLoading(false)
-    },2000)
-  },[]);
+
+    const productoRef = doc(db,'productos',id)
+
+    getDoc(productoRef).then((response) =>{
+      if(response.exists()){
+        const product = {id: response.id, ...response.data()}
+        console.log(product)
+        setProducto(product)
+        setIsLoading(false)
+      }else{
+        console.log('producto no existe')
+      }
+      
+    })},[id]);
 
   return (
     <div>
@@ -29,6 +35,7 @@ export const ItemDetailContainer = ({ children }) => {
         <Loading />
       ) : (
         <ItemDetail
+        id={producto.id}
           name={producto.name}
           price={producto.price}
           category={producto.category}
