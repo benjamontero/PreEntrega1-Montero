@@ -14,7 +14,7 @@ export const CartContext = ({ children }) => {
     //genera nueva variable para pushear en caso de que no haya coincidencia
     const itemAdd = { id, name, price, cantidad };
     //incializa y copia todo lo que traer el cart en nueva variable
-    const newCart = cart;
+    const newCart = [...cart]; // Crear una copia nueva del carrito
     //buscador de item en el carrito
     const findCarrito = newCart.find((prod) => prod.id === itemAdd.id);
     if (findCarrito) {
@@ -22,8 +22,8 @@ export const CartContext = ({ children }) => {
     } else {
       newCart.push(itemAdd);
     }
-    setCart(newCart);
-    localStorage.setItem('cart', JSON.stringify(cart));
+    setCart(newCart); // Actualizar el carrito con la nueva copia
+    localStorage.setItem('cart', JSON.stringify(newCart)); // Guardar la nueva copia en el localStorage
     console.log(cart)
   };
 

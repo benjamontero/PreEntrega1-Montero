@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Layout } from "../components/Layout/Layout";
 import { CartCtx } from "../context/cartContext";
 import { useForm } from "react-hook-form";
@@ -8,9 +8,35 @@ import { Link } from "react-router-dom";
 
 export const Checkout = () => {
   const [idPedido, setIdPedido] = useState("");
-
   const { cart, emplyCart, totalPrice } = useContext(CartCtx);
+
+  //metodos de react-hook-form, para hacer mas simple el manejo de formularios
   const { register, handleSubmit } = useForm();
+
+  //seteo de variables estados para poder ser comparados en tiempo real
+  const [emailPrimary, setEmailPrimary] = useState("");
+  const [emailSecondary, setEmailSecondary] = useState("");
+  const [emailsMatch, setEmailsMatch] = useState(true);
+
+  const handleEmailPrimaryChange = (e) => {
+    const { value } = e.target;
+    setEmailPrimary(value);
+  };
+  //se genera un segundo manejar del segundo evento ya que el primero generaba error manejando y seteando en la misma Fn
+  const handleEmailSecondaryChange = (e) => {
+    const { value } = e.target;
+    setEmailSecondary(value);
+  };
+
+  useEffect(() => {
+    if (emailPrimary === emailSecondary) {
+      console.log("iguales");
+      setEmailsMatch(true);
+    } else {
+      console.log("no iguales");
+      setEmailsMatch(false);
+    }
+  }, [emailPrimary, emailSecondary]);
 
   const compra = (data) => {
     const pedido = {
@@ -67,16 +93,16 @@ export const Checkout = () => {
               <h2 className="font-semibold">{prod.name}</h2>
               <h2>Precio: USD: {prod.price}</h2>
               <h2>Cantidad: {prod.cantidad}</h2>
-              <h2>Precio Total: {prod.price * prod.cantidad}</h2>
+              <h2>Precio Total: USD {prod.price * prod.cantidad}</h2>
             </div>
           ))}
         </div>
         <h2 className="text-3xl font-bold tracking-tight text-cyan-400 text-center">
-            Total de Compra : {totalPrice()}
-          </h2>
+          Total de Compra: USD {totalPrice()}
+        </h2>
         <h2 className="text-xl font-bold tracking-tight mt-4 text-gray-900 text-center">
-            Datos personales
-          </h2>
+          Datos personales
+        </h2>
         <form
           onSubmit={handleSubmit(compra)}
           className="mx-auto mt-4 max-w-xl "
@@ -109,21 +135,30 @@ export const Checkout = () => {
               name="email"
               className="block w-full rounded-md mb-4 border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               {...register("email")}
+              onChange={handleEmailPrimaryChange}
             />
             <input
               type="email"
               placeholder="Ingresa nuevamente tu mail"
               name="emailVerificacion"
               className="block w-full rounded-md mb-4 border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              onChange={handleEmailSecondaryChange}
             />
           </div>
+          {emailsMatch ? (
+            <p>Los correos electrónicos coinciden</p>
+          ) : (
+            <p>Los correos electrónicos no coinciden</p>
+          )}
 
           <button
             type="submit"
-            className="block w-full rounded-md bg-cyan-200 px-3.5 py-2.5  text-center text-sm font-semibold  shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="block w-full rounded-md bg-cyan-200 px-3.5 py-2.5  text-center text-sm font-semibold  shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-gray-500"
+            disabled={!emailsMatch}
           >
             Finalizar Compra
           </button>
+         
         </form>
       </div>
     </Layout>
