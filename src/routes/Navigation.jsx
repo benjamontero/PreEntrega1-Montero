@@ -1,11 +1,10 @@
 import React from 'react'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-import { ItemListContainer } from '../components/ItemListContainer/ItemListContainer'
 import { Home } from '../pages/Home'
 import { ItemDetailPage } from '../pages/ItemDetailPage'
-import { ItemDetailContainer } from '../components/ItemDetailContainer/ItemDetailContainer'
 import { ErrorPage } from '../pages/ErrorPage'
-
+import { CartPage } from '../pages/CartPage'
+import { Checkout} from '../pages/Checkout'
 const router = createBrowserRouter([
 
     {
@@ -23,7 +22,15 @@ const router = createBrowserRouter([
     {
       path: '/404',
       element: <ErrorPage/>
-  }
+  },
+  {
+    path: '/cart',
+    element: <CartPage/>
+},
+{
+  path: '/checkout',
+  element: <Checkout/>
+}
 
 ])
 

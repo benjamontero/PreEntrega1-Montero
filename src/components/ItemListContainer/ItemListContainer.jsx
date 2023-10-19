@@ -1,10 +1,67 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from "react";
+import { Loading } from "../Loading";
+import { useParams } from "react-router-dom";
+import { ItemList } from "../ItemList/ItemList";
+import { CartCtx } from "../../context/cartContext";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
-export const ItemListContainer = ({children}) => {
+export const ItemListContainer = () => {
+  const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+  const { listProducts, setListProducts } = useContext(CartCtx);
+
+  useEffect(() => {
+    const productsRef = collection(db, "productos");
+
+    //consulta para filtrar
+    if (id === undefined) {
+      getDocs(productsRef).then((resp) => {
+        const productsFirebase = resp.docs.map((product) => ({
+          id: product.id,
+          ...product.data(),
+        }));
+        setListProducts(productsFirebase);
+        setIsLoading(false);
+      });
+    } else {
+      const q = query(productsRef, where("category", "==", id));
+      getDocs(q).then((resp) => {
+        const productsFirebase = resp.docs.map((product) => ({
+          id: product.id,
+          ...product.data(),
+        }));
+        setListProducts(productsFirebase);
+        setIsLoading(false);
+      });
+    }
+
+    // setTimeout(() => {
+    //   Validamos si el searchCategory esta vacio, que nos muestre la pagina con todos los productos, caso contrario que setee la nueva categoria
+    //   if (searchCategory.length === 0) {
+    //     setListProducts(listProducts);
+    //   } else {
+    //     setListProducts(searchCategory);
+    //   }
+    //   setIsLoading(false);
+    // }, 1000);
+  }, [id]);
   return (
-    <div className='p-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 xl:gap-x-8'>
-      {children}
-      
+    <div className="p-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 xl:gap-x-8">
+      {isLoading ? (
+        <Loading />
+      ) : (
+        listProducts.map((producto) => (
+          <ItemList
+            key={producto.id}
+            id={producto.id}
+            name={producto.name}
+            price={producto.price}
+            category={producto.category}
+            image={producto.image}
+          ></ItemList>
+        ))
+      )}
     </div>
-  )
-}
+  );
+};

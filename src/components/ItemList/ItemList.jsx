@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Item = ({id, name,price,category,image}) => {
+export const ItemList = ({id, name,price,category,image}) => {
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <div className="text-xl p-2 text-center font-semibold tracking-tight text-gray-900 dark:text-white">{category}</div>
