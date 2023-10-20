@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { CartCtx } from "../../context/cartContext";
+import { CartCtx } from "../../context/CartContext";
 
 export const ItemDetail = ({id,name,price,category,image,stock,description,}) => {
   const { cart, handleAgregar } = useContext(CartCtx);
