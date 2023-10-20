@@ -5,8 +5,7 @@ Matear is a project developed in the coderhouse React course. It is assembled wi
 
 
 ## Demo
-
-https://snazzy-macaron-8c7b5b.netlify.app/
+https://matear.netlify.app/
 
 
 ## Getting Started
