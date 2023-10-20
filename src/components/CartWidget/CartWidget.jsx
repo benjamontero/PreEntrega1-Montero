@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import cartIcon from "../../assets/cartIcon.svg";
 import { Link } from "react-router-dom";
-import { CartCtx } from "../../context/cartContext";
+import { CartCtx } from "../../context/CartContext";
 
 export const CartWidget = () => {
 
