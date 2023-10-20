@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Layout } from "../components/Layout/Layout";
-import { CartCtx } from "../context/CartContext";
 import { useForm } from "react-hook-form";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { Link } from "react-router-dom";
+import { CartCtx } from "../context/cartContext";
 
 export const Checkout = () => {
   const [idPedido, setIdPedido] = useState("");
+  const [dateOfPurchase, setDateOfPurchase] = useState('')
   const { cart, emplyCart, totalPrice } = useContext(CartCtx);
-
   //metodos de react-hook-form, para hacer mas simple el manejo de formularios
   const { register, handleSubmit } = useForm();
 
@@ -39,15 +39,15 @@ export const Checkout = () => {
   }, [emailPrimary, emailSecondary]);
 
   const compra = (data) => {
+    const currentDate = new Date().toLocaleDateString();
     const pedido = {
       cliente: data,
       productos: cart,
       total: totalPrice(),
+      fecha: currentDate
     };
-    console.log(pedido);
-
     const pedidosRef = collection(db, "pedidos");
-
+    setDateOfPurchase(currentDate);
     addDoc(pedidosRef, pedido).then((doc) => {
       setIdPedido(doc.id);
       emplyCart();
@@ -62,7 +62,7 @@ export const Checkout = () => {
             Muchas gracias por tu Compra
           </h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            Tu numero de pedido es: {idPedido}
+            Tu numero de pedido es: {idPedido}. Con fecha de realizacion: {dateOfPurchase}
           </p>
           <Link
             className="block w-full rounded-md bg-cyan-200 px-3.5 py-2.5  text-center text-sm font-semibold  shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

@@ -24,7 +24,6 @@ export const CartContext = ({ children }) => {
     }
     setCart(newCart); // Actualizar el carrito con la nueva copia
     localStorage.setItem('cart', JSON.stringify(newCart)); // Guardar la nueva copia en el localStorage
-    console.log(cart)
   };
 
   //Funcion para vaciar cart
@@ -33,9 +32,8 @@ export const CartContext = ({ children }) => {
     localStorage.setItem('cart', JSON.stringify(cart))
   };
   //Funcion SumarTotales
-  const totalPrice = () => {
-    return cart.reduce((acc, prod) => acc + prod.price * prod.cantidad, 0);
-  };
+  const totalPrice = () => cart.reduce((acc, prod) => acc + prod.price * prod.cantidad, 0);
+  
 
 
 

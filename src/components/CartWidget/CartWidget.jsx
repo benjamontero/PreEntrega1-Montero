@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import cartIcon from "../../assets/cartIcon.svg";
 import { Link } from "react-router-dom";
-import { CartCtx } from "../../context/CartContext";
+import { CartCtx } from "../../context/cartContext";
 
 export const CartWidget = () => {
-
 
     const { cart } = useContext(CartCtx);
     const [cartQuantity, setCartQuantity] = useState(0);
@@ -13,8 +12,6 @@ export const CartWidget = () => {
       const quantityOnCart = cart.reduce((acc, prod) => acc + prod.cantidad, 0);
       setCartQuantity(quantityOnCart);
     }, [cart]);
-
- 
 
   return (
     <div className="flex p-4 mr-2">
