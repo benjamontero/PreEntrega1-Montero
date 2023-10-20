@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { ItemList } from "../ItemList/ItemList";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase/config";
-import { CartCtx } from "../../context/cartContext";
+import { CartCtx } from "../../context/CartContext";
 
 export const ItemListContainer = () => {
   const { id } = useParams();
