@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { CartCtx } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import { CartCtx } from "../../context/cartContext";
 
 export const CartList = () => {
   const { cart, emplyCart, totalPrice } = useContext(CartCtx);
@@ -32,8 +32,10 @@ export const CartList = () => {
         >
           Vaciar Carrito
         </button>
-        <Link to={"/checkout"} className="py-2 px-4 rounded-full font-bold bg-cyan-200 hover:bg-cyan-300">
-          Finalizar Compra
+        <Link
+          to={"/checkout"}
+          className="py-2 px-4 rounded-full font-bold bg-cyan-200 hover:bg-cyan-300"
+        >Finalizar Compra
         </Link>
       </div>
     </div>

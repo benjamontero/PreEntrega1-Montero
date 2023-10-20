@@ -5,29 +5,24 @@ import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { db } from "../../firebase/config";
 import { doc, getDoc } from "firebase/firestore";
 
-
 export const ItemDetailContainer = () => {
-
   const { id } = useParams();
-  const[isLoading, setIsLoading] = useState(true)
-  const [producto, setProducto] = useState({})
+  const [isLoading, setIsLoading] = useState(true);
+  const [producto, setProducto] = useState({});
 
+  useEffect(() => {
+    const productoRef = doc(db, "productos", id);
 
-  useEffect(()=>{
-
-    const productoRef = doc(db,'productos',id)
-
-    getDoc(productoRef).then((response) =>{
-      if(response.exists()){
-        const product = {id: response.id, ...response.data()}
-        console.log(product)
-        setProducto(product)
-        setIsLoading(false)
-      }else{
-        console.log('producto no existe')
+    getDoc(productoRef).then((response) => {
+      if (response.exists()) {
+        const product = { id: response.id, ...response.data() };
+        setProducto(product);
+        setIsLoading(false);
+      } else {
+        console.log("producto no existe");
       }
-      
-    })},[id]);
+    });
+  }, [id]);
 
   return (
     <div>
@@ -35,7 +30,7 @@ export const ItemDetailContainer = () => {
         <Loading />
       ) : (
         <ItemDetail
-        id={producto.id}
+          id={producto.id}
           name={producto.name}
           price={producto.price}
           category={producto.category}

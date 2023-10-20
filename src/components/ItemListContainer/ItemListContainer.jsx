@@ -2,10 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { Loading } from "../Loading";
 import { useParams } from "react-router-dom";
 import { ItemList } from "../ItemList/ItemList";
-import { CartCtx } from "../../context/CartContext";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase/config";
-
+import { CartCtx } from "../../context/cartContext";
 
 export const ItemListContainer = () => {
   const { id } = useParams();
@@ -36,16 +35,6 @@ export const ItemListContainer = () => {
         setIsLoading(false);
       });
     }
-
-    // setTimeout(() => {
-    //   Validamos si el searchCategory esta vacio, que nos muestre la pagina con todos los productos, caso contrario que setee la nueva categoria
-    //   if (searchCategory.length === 0) {
-    //     setListProducts(listProducts);
-    //   } else {
-    //     setListProducts(searchCategory);
-    //   }
-    //   setIsLoading(false);
-    // }, 1000);
   }, [id]);
   return (
     <div className="p-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 xl:gap-x-8">

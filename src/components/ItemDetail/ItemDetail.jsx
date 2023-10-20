@@ -1,16 +1,8 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { CartCtx } from "../../context/CartContext";
+import { CartCtx } from "../../context/cartContext";
 
-export const ItemDetail = ({
-  id,
-  name,
-  price,
-  category,
-  image,
-  stock,
-  description,
-}) => {
+export const ItemDetail = ({id,name,price,category,image,stock,description,}) => {
   const { cart, handleAgregar } = useContext(CartCtx);
   const [cantidad, setCantidad] = useState(1);
 
@@ -65,9 +57,12 @@ export const ItemDetail = ({
                 </button>
               </div>
               <div className="p-2">
-                <button 
-                onClick={() => {handleAgregar(id,name,price,cantidad)}}
-                className="py-2 px-4 rounded-full font-bold bg-cyan-200 hover:bg-cyan-300">
+                <button
+                  onClick={() => {
+                    handleAgregar(id, name, price, cantidad);
+                  }}
+                  className="py-2 px-4 rounded-full font-bold bg-cyan-200 hover:bg-cyan-300"
+                >
                   Agregar a carrito
                 </button>
               </div>
