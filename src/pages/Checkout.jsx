@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { Link } from "react-router-dom";
-import { CartCtx } from "../context/cartContext";
+import { CartCtx } from "../context/CartContext";
+
 
 export const Checkout = () => {
   const [idPedido, setIdPedido] = useState("");
