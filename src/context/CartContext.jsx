@@ -34,9 +34,6 @@ export const CartContext = ({ children }) => {
   //Funcion SumarTotales
   const totalPrice = () => cart.reduce((acc, prod) => acc + prod.price * prod.cantidad, 0);
   
-
-
-
   return (
     <CartCtx.Provider
       value={{

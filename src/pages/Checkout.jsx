@@ -30,10 +30,8 @@ export const Checkout = () => {
 
   useEffect(() => {
     if (emailPrimary === emailSecondary) {
-      console.log("iguales");
       setEmailsMatch(true);
     } else {
-      console.log("no iguales");
       setEmailsMatch(false);
     }
   }, [emailPrimary, emailSecondary]);
